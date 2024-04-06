@@ -1,3 +1,4 @@
+import { FileUploader } from '@/components/FileUploader';
 import Navbar from '@/components/Navbar'
 import { Search } from '@/components/Search';
 import { Button } from '@/components/ui/button';
@@ -29,7 +30,8 @@ const HomePage = () => {
           className="max-h-[70vh] object-contain object-center 2xl:max-h-[50vh]"
         />
       </div>
-      <Search/>
+      {/* <Search/> */}
+      {/* <FileUploader/> */}
     </section>
   );
 }

@@ -1,9 +1,23 @@
-import React from 'react'
+import EventForm from "@/components/EventForm";
+import { auth } from "@clerk/nextjs";
 
-const EventCreate = () => {
+const CreateEvent = () => {
+  const { userId } = auth();
+  const user_Id = userId as string;
+
   return (
-    <div>EventCreate</div>
-  )
-}
+    <>
+      <section className="bg-primary-50 bg-dotted-pattern bg-cover bg-center py-5 md:py-10">
+        <h3 className="wrapper h3-bold text-center sm:text-left">
+          Create Event
+        </h3>
+      </section>
 
-export default EventCreate;
+      <div className="wrapper my-8">
+        <EventForm userId={user_Id} type="Create" />
+      </div>
+    </>
+  );
+};
+
+export default CreateEvent;
