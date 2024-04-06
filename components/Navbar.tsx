@@ -23,6 +23,7 @@ const Navbar = () => {
             width={128}
             height={38}
             alt="Evently logo"
+            priority
           />
         </Link>
 
