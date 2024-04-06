@@ -1,8 +1,10 @@
 
 
 
-import CheckoutButton from "@/components/shared/CheckoutButton";
+// import CheckoutButton from "@/components/shared/CheckoutButton";
 
+import CheckoutButton from "@/components/CheckoutButton";
+import Collection from "@/components/Collection";
 import {
   getEventById,
   getRelatedEventsByCategory,
@@ -102,7 +104,7 @@ const EventDetails = async ({
         </div>
       </section>
 
-      {/* EVENTS with the same category
+      {/* EVENTS with the same category */}
       <section className="wrapper my-8 flex flex-col gap-8 md:gap-12">
         <h2 className="h2-bold">Related Events</h2>
 
@@ -115,7 +117,7 @@ const EventDetails = async ({
           page={searchParams.page as string}
           totalPages={relatedEvents?.totalPages}
         />
-      </section> */}
+      </section>
     </>
   );
 };

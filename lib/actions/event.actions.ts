@@ -23,7 +23,7 @@ const getCategoryByName = async (name: string) => {
 
 const populateEvent = (query: any) => {
   return query
-    .populate({ path: 'organizer', model: User, select: '_id firstName lastName' })
+    .populate({ path: 'organizer', model: User, select: '_id firstName lastName clerkId' })
     .populate({ path: 'category', model: Category, select: '_id name' })
 }
 
@@ -63,9 +63,9 @@ export async function getEventById(eventId: string) {
 export async function updateEvent({ userId, event, path }: UpdateEventParams) {
   try {
     await connectToDatabase()
-
     const eventToUpdate = await Event.findById(event._id)
-    if (!eventToUpdate || eventToUpdate.organizer.toHexString() !== userId) {
+    const user = await User.findOne({clerkId:userId});
+    if (!eventToUpdate || eventToUpdate.organizer.toHexString()!== user._id.toHexString()) {
       throw new Error('Unauthorized or event not found')
     }
 
