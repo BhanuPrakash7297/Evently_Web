@@ -8,6 +8,7 @@ type UpdateEventProps = {
   };
 };
 
+
 const UpdateEvent = async ({ params: { id } }: UpdateEventProps) => {
   
   const event = await getEventById(id);

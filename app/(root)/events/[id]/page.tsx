@@ -1,6 +1,4 @@
 
-
-
 // import CheckoutButton from "@/components/shared/CheckoutButton";
 
 import CheckoutButton from "@/components/CheckoutButton";
@@ -11,6 +9,7 @@ import {
 } from "@/lib/actions/event.actions";
 import { formatDateTime } from "@/lib/utils";
 import { SearchParamProps } from "@/types";
+import { auth, useUser } from "@clerk/nextjs";
 import Image from "next/image";
 
 const EventDetails = async ({
@@ -24,8 +23,10 @@ const EventDetails = async ({
     eventId: event._id,
     page: searchParams.page as string,
   });
-
-  return (
+   const { userId } = auth();
+   const user_Id = userId as string;
+   console.log("user id in page id ",user_Id)
+  return (  
     <>
       <section className="flex justify-center bg-primary-50 bg-dotted-pattern bg-contain">
         <div className="grid grid-cols-1 md:grid-cols-2 2xl:max-w-7xl">
@@ -60,7 +61,7 @@ const EventDetails = async ({
               </div>
             </div>
 
-            <CheckoutButton event={event} />
+            <CheckoutButton event={event} userId={user_Id} />
 
             <div className="flex flex-col gap-5">
               <div className="flex gap-2 md:gap-3">

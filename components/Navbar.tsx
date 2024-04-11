@@ -19,7 +19,7 @@ const Navbar = () => {
       <div className="wrapper flex items-center justify-between">
         <Link href="/" className="w-36">
           <Image
-            src="images/logo.svg"
+            src="Images/logo.svg"
             width={128}
             height={38}
             alt="Evently logo"
